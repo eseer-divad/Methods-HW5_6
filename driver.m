@@ -30,7 +30,8 @@ input('Press Any Key to Continue...');
 % Repeated Inputs from Question 6 **
 % ---
 
-ig1 = 10; % x-naut, becomes x_n in seven.m 
+ig = 10; % x-naut, becomes x_n in seven.m 
+maxN = 3000;
 est = seven(f,ig,tol,maxN);
 
 % Output Addendum (Question 7)
