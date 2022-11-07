@@ -1,16 +1,15 @@
-function x_nplus1 = six(f, df, ig, tol, maxN)
+function x_nplus1 = seven(f, ig1, ig2, tol, maxN)
 
 converged = false;  % Convergence
-x_nplus1 = ig;  % Initial Guess
+x_n = ig1;  % Initial Guess
+x_nminus1 = ig2; % Secant method requires x_n-1.
 
 for i=1:1:maxN
-
-    % Newton's Iterative Calculation
-    x_n = x_nplus1;
-    x_nplus1 = x_n - f(x_n)/df(x_n);
+    % Secant Iteration Formula
+    x_nplus1 = x_nminus1 - f(x_nminus1)*((x_n)-(x_nminus1)/(f(x_n)-f(x_nminus1)));
     disp('\n Iteration #' + i);
-    disp('\n' + x_nplus1)
-    
+    disp('\n' + x_nplus1);
+
     % Stopping Criteria
     if (abs(f(x_nplus1)) + abs(x_nplus1-x_n)) < tol
         disp('f Converges!')
@@ -23,4 +22,3 @@ end
 if i == maxN && converged == false
     disp('f Did Not Converge!')
 end
-

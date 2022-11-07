@@ -20,3 +20,23 @@ disp("f(x) = " + func2str(f))
 disp("Tolerance: " + tol)
 disp("Initial Guess: " + ig)
 disp("Estimate: " + est)
+
+% Press Any Key to Continue...
+input('Press Any Key to Continue...');
+
+% Secant (Question 7)
+
+% ---
+% Repeated Inputs from Question 6 **
+% ---
+
+ig1 = 10; % x-naut, becomes x_n in seven.m
+ig2 = 0; % Input for x_nminus1. 
+est = seven(f,ig1,ig2,tol,maxN);
+
+% Output Addendum (Question 7)
+disp("f(x) = " + func2str(f))
+disp("Tolerance: " + tol)
+disp("Initial Guess: " + ig)
+disp("Estimate: " + est)
+
