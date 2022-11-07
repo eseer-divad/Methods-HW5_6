@@ -1,4 +1,4 @@
-function [x_n, error] = eight(f, df, ig, tol, p, maxN, sol, error)
+function [x_n, error] = nine(f, df, ig, tol, p, maxN, sol, error)
 
 converged = false; % Convergence
 x_n = ig;  % Initial Guess
@@ -10,7 +10,7 @@ for i=1:1:maxN
 
     % Newton's Iterative Calculation
     x_nplus1 = x_n - f(x_n)/df(x_n);
-    error(i+1) = abs(x_n-r)/(x_n-r)^p;
+    error(i+1) = abs(x_n-r)/abs((x_n-r)^p);
     
 
     disp('\n Iteration #' + i);

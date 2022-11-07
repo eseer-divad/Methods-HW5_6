@@ -4,15 +4,14 @@ converged = false; % Convergence
 x_n = ig;  % Initial Guess
 error(1)=abs(x_n); % Error Array (R_n)
 r = sol; 
-x_nplus1 = 0;
 
 for i=1:1:maxN
 
     % Newton's Iterative Calculation
+    x_n = x_nplus1;
     x_nplus1 = x_n - f(x_n)/df(x_n);
-    error(i+1) = abs(x_n-r)/(x_n-r)^p;
+    error(i+1) = abs(x_n-r)/((x_n-r)*(x_n-r));
     
-
     disp('\n Iteration #' + i);
     disp('\n' + x_nplus1)
     disp('Error: ' + error(i+1))
@@ -23,7 +22,6 @@ for i=1:1:maxN
         converged = true;
         break;
     end
-    x_n = x_nplus1;
 end
 
 % Check if f(x_n) diverged.
